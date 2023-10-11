@@ -3,7 +3,7 @@ require('dotenv').config()
 require('./db/connect')
 const app = express();
 const users = require('./routes/user-controller');
-const cards = require('./routes/cards-controller');
+const deck = require('./routes/deck-controller');
 const connectDB = require('./db/connect');
 
 // static assets
@@ -15,7 +15,7 @@ app.use(express.json());
 
 // Routes/router
 app.use('/api/users', users)
-app.use('/api/cards', cards)
+app.use('/api/cards', deck)
 app.use('/login', )
 
 // Server listener
