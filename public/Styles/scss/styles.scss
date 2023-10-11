@@ -43,7 +43,7 @@
     width: 31vw;
     height: 31vw;
     border-radius: .5rem;
-    background-color: rgba(63, 63, 63, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     display: flex;
     justify-content: flex-end;
@@ -64,10 +64,10 @@
     width: 18vw;
     height: 8vw;
   }
-  .container-dealer{
-    width: 10vw;
-    background-color: #fff;
+  .dealerContainer{
+    width: 60vw;
     height: 15vw;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: .5rem;
   }
 .dealer-both{
@@ -75,14 +75,18 @@
     margin-top: 15.5vw;
     margin-left: 2vw;
 }
-.container-player{
-    width: 10vw;
-    background-color: #fff;
+.playerContainer{
+    width: 60vw;
     height: 15vw;
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: .5rem;
   }
 .player-both{
     color: #fff;
     margin-left: 2vw;
     margin-top: 2vw;
+}
+
+.card{
+  height: 15vw;
 }
