@@ -5,14 +5,21 @@
   body{
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
-    background-color: black;
+    background-image: url(../../../image/vecteezy_felt-dark-green-soft-rough-textile-material-background_15234513_921.jpg);
     background-size: cover; /* Cover the entire screen */
     background-attachment: fixed; /* Fixed background position */
     background-repeat: no-repeat; /* Prevent repeating the image */
     overflow-y: hidden;
     overflow-x: hidden;
   }
-  
+  @font-face{
+    font-family: kanit;
+    src: url(../../../fonts/Kanit-Medium.ttf);
+  }
+  @font-face{
+    font-family: kanitLight;
+    src: url(../../../fonts/Kanit-Light.ttf);
+  }
   .button-group {
     position: absolute;
     bottom: 3vw;
@@ -26,7 +33,8 @@
     width: 15vw;
     margin-left: 1vw;
     height: 15vw;
-    font-size: 2vw;
+    font-size: 3vw;
+    font-family: kanit;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -34,23 +42,46 @@
   }
   
   #stand {
-    background-color: #FF4136;
+    background-color: #D32F2F;
+    transition: 0.2s;
+    &:hover{
+      transition: 0.2s;
+      background-color: #B71C1C ;
+    }
   }
   #hit {
-    background-color: #3936ff;
+    background-color: #1E88E5;
+    transition: 0.2s;
+    &:hover{
+      transition: 0.2s;
+      background-color: #1565C0;
+    }
   }
-  .game-stats{
+  .game-stats {
     width: 31vw;
     height: 31vw;
     border-radius: .5rem;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
     top: 3vw;
     right: 3vw;
   }
+  
+  .game-stats h1 {
+    text-align: center; /* Center text horizontally within each h1 element */
+    font-family: kanitLight;
+    color: white;
+    font-size: 2vw;
+    span{
+      font-size: 3vw;
+      font-family: kanit;
+    }
+  }
+  
   .nav{
     width: 50vw;
     height: 10vw;
@@ -67,24 +98,24 @@
   .dealerContainer{
     width: 60vw;
     height: 15vw;
-    background-color: rgba(0, 0, 0, 0.6);
     border-radius: .5rem;
   }
 .dealer-both{
     color: #fff;
-    margin-top: 15.5vw;
+    margin-top: 15vw;
     margin-left: 2vw;
+    font-family: kanitLight;
 }
 .playerContainer{
     width: 60vw;
     height: 15vw;
-    background-color: rgba(0, 0, 0, 0.6);
     border-radius: .5rem;
   }
 .player-both{
     color: #fff;
     margin-left: 2vw;
     margin-top: 2vw;
+    font-family: kanitLight;
 }
 
 .card{
