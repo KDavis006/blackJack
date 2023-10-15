@@ -6,4 +6,9 @@ const getAllUserStats = async (req, res) => {
   res.json(answer)
 }
 
-module.exports = {getAllUserStats}
+const getTopWins = async (req, res) => {
+    const topUsers = await User.find().sort({ wins: -1 }).limit(10);
+    res.json(topUsers);
+}
+
+module.exports = {getAllUserStats, getTopWins}
