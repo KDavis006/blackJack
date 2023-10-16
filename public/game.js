@@ -54,11 +54,11 @@ const playerHit = async () => {
 const dealerHit = async () => {
   await drawInitialCards(dealerBoard, dealerCards, 1);
 
-  if (calculateHandValue(dealerBoard) > 21 || dealerBoard.length === 5) {
-    playerWin();
-    return
-  } else if (calculateHandValue(dealerBoard) < 17) {
+   if (calculateHandValue(dealerBoard) < 17) {
     dealerHit();
+    return
+   }else if (calculateHandValue(dealerBoard) > 21 || dealerBoard.length === 5) {
+    playerWin();
     return
   } else {
     endGame();
@@ -75,10 +75,10 @@ const calculateHandValue = (hand) => {
       value += 10;
     } else if (card !== 'ACE') {
       value += parseInt(card);
-    } else if (value >= 11) {
-      value += 1;
-    } else {
+    } else if (value < 11) {
       value += 11;
+    } else {
+      value += 1;
     }
   }
 
@@ -92,8 +92,9 @@ const endGame = () => {
   if (dealerBoard.length === 2) {
     dealerCards.innerHTML = `<img class="card" src="${dealerBoard[0].image}"><img class="card" src="${dealerBoard[1].image}">`;
   }
-
-  if (playerValue > 21) {
+  if(calculateHandValue(dealerBoard) < 17) {
+    dealerHit();
+  }else if (playerValue > 21) {
     playerLose();
   } else if (dealerValue > 21 || (dealerValue < 17 && dealerValue < playerValue)) {
     playerWin();
@@ -105,22 +106,37 @@ const endGame = () => {
 };
 
 
-const showDelayedAlert = (message, delayInSeconds) => {
-  setTimeout(() => {
-    window.alert(message);
-  }, delayInSeconds * 1000); // Convert seconds to milliseconds
+const openModal = (title, message) => {
+  const modal = document.getElementById("myModal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalMessage = document.getElementById("modal-message");
+  modalTitle.textContent = title;
+  modalMessage.textContent = message;
+  modal.style.display = "block";
 };
 
+const closeModal = () => {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+};
+
+const newGameButton = document.getElementById("newGameButton");
+newGameButton.addEventListener("click", () => {
+  closeModal();
+  window.location.reload();
+});
+
+// Functions to display the custom pop-up windows
 const playerWin = () => {
-  showDelayedAlert('Congratulations! You win!', .5);
+  openModal('Congratulations!', 'You win!');
 };
 
 const playerLose = () => {
-  showDelayedAlert('Sorry, you lose.', .5);
+  openModal('Sorry', 'You Lose!');
 };
 
 const tie = () => {
-  showDelayedAlert("It's a Tie! The game is a draw.", .5);
+  openModal("It's a Tie!", 'The game is a draw.');
 };
 
 startGame();

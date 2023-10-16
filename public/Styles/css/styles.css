@@ -148,16 +148,17 @@ button {
   padding: 20px;
   border: 1px solid #888;
   width: 60%;
+  text-align: center;
 }
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+#newGameButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
-.close:hover {
-  color: black;
+#newGameButton:hover {
+  background-color: #45a049;
 }/*# sourceMappingURL=styles.css.map */
