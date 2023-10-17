@@ -24,7 +24,6 @@ const drawInitialCards = async (board, container, count, hideSecondCard = false)
   const cards = res.data.cards;
 
   board.push(...cards.map(card => ({ code: card.code, value: card.value, image: card.image })));
-
   const cardImages = cards.map(card => `<img class="card" src="${card.image}" alt="${card.name}">`);
   if (hideSecondCard && count === 2) {
     cardImages[1] = '<img class="card" src="https://deckofcardsapi.com/static/img/back.png" alt="hidden card">';
@@ -106,37 +105,24 @@ const endGame = () => {
 };
 
 
-const openModal = (title, message) => {
-  const modal = document.getElementById("myModal");
-  const modalTitle = document.getElementById("modal-title");
-  const modalMessage = document.getElementById("modal-message");
-  modalTitle.textContent = title;
-  modalMessage.textContent = message;
-  modal.style.display = "block";
+const showDelayedAlert = (message, delayInSeconds) => {
+  setTimeout(() => {
+    if (confirm(message)) {
+      window.location.reload(); // Reload the page only if the user clicks OK
+    }
+  }, delayInSeconds * 1000); // Convert seconds to milliseconds
 };
 
-const closeModal = () => {
-  const modal = document.getElementById("myModal");
-  modal.style.display = "none";
-};
-
-const newGameButton = document.getElementById("newGameButton");
-newGameButton.addEventListener("click", () => {
-  closeModal();
-  window.location.reload();
-});
-
-// Functions to display the custom pop-up windows
 const playerWin = () => {
-  openModal('Congratulations!', 'You win!');
+  showDelayedAlert('Congratulations! You win!', 0.5);
 };
 
 const playerLose = () => {
-  openModal('Sorry', 'You Lose!');
+  showDelayedAlert('Sorry, you lose.', 0.5);
 };
 
 const tie = () => {
-  openModal("It's a Tie!", 'The game is a draw.');
+  showDelayedAlert("It's a Tie! The game is a draw.", 0.5);
 };
 
 startGame();
