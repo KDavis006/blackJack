@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-image: url(../../../image/iStock-1218355494.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: kanit;
+  src: url(../../../fonts/Kanit-Medium.ttf);
+}
+@font-face {
+  font-family: kanitLight;
+  src: url(../../../fonts/Kanit-Light.ttf);
+}
+.group {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dealerContainer {
+  width: 60rem;
+  height: 15rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dealer-both {
+  color: #fff;
+  margin-top: 5rem;
+  font-size: 1vw;
+  margin-left: 2vw;
+  font-family: kanitLight;
+}
+
+.playerContainer {
+  width: 60rem;
+  height: 15rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.player-both {
+  color: #fff;
+  margin-left: 2vw;
+  margin-top: 1vw;
+  font-size: 1vw;
+  font-family: kanitLight;
+}
+
+.card {
+  height: 10vh;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 2rem;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.stand {
+  font-size: 3vw;
+  font-family: kanit;
+  color: #fff;
+  height: 5rem;
+  width: 25rem;
+  border: none;
+  background-color: #D32F2F;
+  transition: 0.2s;
+  box-shadow: 2px 2px 10px black;
+}
+.stand:hover {
+  transition: 0.2s;
+  background-color: #B71C1C;
+}
+
+.hit {
+  font-size: 3vw;
+  font-family: kanit;
+  color: #fff;
+  border: none;
+  height: 5rem;
+  width: 25rem;
+  background-color: #1E88E5;
+  transition: 0.2s;
+  box-shadow: 2px 2px 10px black;
+}
+.hit:hover {
+  transition: 0.2s;
+  background-color: #1565C0;
+}
+
+.start-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.start-buttons button {
+  padding: 1.5rem 7rem 1.5rem 7rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.play {
+  background-color: rgb(228, 208, 30);
+}/*# sourceMappingURL=styles.css.map */
