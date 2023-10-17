@@ -1,3 +1,23 @@
+$(function(){
+  $('#profile').on('click', function(){
+   $(`.pop-profile`).css({"display": "flex"},2000);
+  })
+ })
+ $(function(){
+  $('#scoreboard').on('click', function(){
+   $(`.pop-scoreboard`).css({"display": "flex"},2000);
+  })
+ })
+ $(function(){
+  $('#leave1').on('click', function(){
+   $(`.pop-profile`).css({"display": "none"},2000);
+  })
+ })
+ $(function(){
+  $('#leave2').on('click', function(){
+   $(`.pop-scoreboard`).css({"display": "none"},2000);
+  })
+ })
 const topWinners = document.querySelector('.top-winners'); // Use the correct selector for your HTML element
 
 const topWins = async () => {

@@ -7,7 +7,7 @@ body {
  /* Remove default margin */
   padding: 0;
  /* Remove default padding */
-  background-image: url(../../image/iStock-1218355494.jpg);
+  background-image: url(../../../image/iStock-1218355494.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,11 +17,11 @@ body {
 }
 @font-face {
   font-family: kanit;
-  src: url(../../fonts/Kanit-Medium.ttf);
+  src: url(../../../fonts/Kanit-Medium.ttf);
 }
 @font-face {
   font-family: kanitLight;
-  src: url(../../fonts/Kanit-Light.ttf);
+  src: url(../../../fonts/Kanit-Light.ttf);
 }
 .group {
   text-align: center;
