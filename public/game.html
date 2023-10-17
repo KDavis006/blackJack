@@ -7,34 +7,7 @@
     <title>Blackjack</title>
 </head>
 <body>
-    <div class="nav">
-        <a href=""><img class="logo" src="../image/Blackjack-logo.png"></a>
-        <a href=""></a>
-    </div>
-    <div class="button-group">
-        <button id="hit">Hit</button>
-        <br>
-        <button id="stand">Stand</button>
-      </div>
-      <div class="game-stats">
-        <h1>
-            WIns this session
-            <br>
-        <span>0</span>
-    </h1>
-        <br>
-        <h1>
-            Losses this session
-            <br>
-            <span>0</span>
-        </h1>
-        <br>
-            <h1>
-                Max Winstreak
-                <br>
-                <span>0</span>
-            </h1>
-      </div>
+    <div class="group">
       <div class="dealer-both">
       <h1 class="titles">Dealer</h1>
       <div class="dealerContainer"></div>
@@ -43,6 +16,13 @@
         <h1 class="titles">Player</h1>
         <div class="playerContainer"></div>
       </div>
+    </div>
+        <div class="buttons-container">
+            <div class="button-group">
+              <button class="hit">HIT</button>
+              <button class="stand">STAND</button>
+            </div>
+        </div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
        crossorigin="anonymous"></script>
