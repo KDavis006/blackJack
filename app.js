@@ -1,34 +1,51 @@
 const express = require('express');
-require('dotenv').config()
-require('./db/connect')
+const session = require('express-session');
+const flash = require('connect-flash');
+const morgan = require('morgan');
+const passport = require('passport');
+require("./config/passport")(passport);
+require('dotenv').config();
+const router = express.Router();
 const app = express();
-const users = require('./routes/user-controller');
-const deck = require('./routes/deck-controller');
-const connectDB = require('./db/connect');
+const mongoose = require('mongoose');
+const expressEJSLayout = require('express-ejs-layouts');
 
-// static assets
-app.use(express.static('./public'))
-// parse form data
-app.use(express.urlencoded({ extended: false}));
-// parse json data
-app.use(express.json());
+
+
+try {
+ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true})
+ .then(() => console.log(`Connected on Port: ${process.env.PORT}`))
+ .catch ((err) => {console.log(err)});
+} catch (err) {}
+
+// development tools
+app.use(morgan('tiny'))
+// EJS
+app.set('view engine', 'ejs');
+app.use(expressEJSLayout);
+// Body Parser
+app.use(express.urlencoded({extended: false}));
+// Express session
+app.use(session({
+ secret: process.env.SESSION_SECRET,
+ resave: true,
+ saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+// use flash messaging---Express
+app.use(flash());
+app.use((req, res, next) => {
+ res.locals.success_msg = req.flash('success_msg');
+ res.locals.error_msg = req.flash('error_msg');
+ res.locals.error = req.flash('error');
+ next();
+})
 
 // Routes/router
-app.use('/api/users', users)
-app.use('/api/cards', deck)
-app.use('/login', )
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/user'));
 
 // Server listener
 
-const initServer = async () => {
-  try {
-    await connectDB(process.env.MONGO_URI)
-    app.listen(5000, () => {
-     console.log("Server is listening on Port 5000")
-    })
-  } catch (err) {
-    console.log(err)
-  }
-}
-
-initServer()
+app.listen(process.env.PORT || 5000)
