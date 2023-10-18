@@ -99,7 +99,7 @@ body {
   transition: 0.2s;
   background-color: #1565c0;
 }
-.backhome{
+.back-home{
   font-family: kanitlight;
   top: 0;
   color: white;
@@ -118,31 +118,53 @@ body {
 .post-background{
   width: 100vw;
   height: 100%;
-  background-color: rgb(236, 236, 236);
+  background-color: rgba(2, 99, 13, 0.1);
   z-index: 2;
   position: fixed;
   display: none;
 }
 .post-wrapper{
   z-index: 5;
-  display: flex;
-  text-align: center;
   justify-content: center;
   align-items: center;
   position: fixed;
   flex-wrap: wrap;
   gap: 2rem;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
 }
 .post {
+  color: #ffffff;
   position: absolute;
   width: 60rem;
   height: 40rem;
   border-radius: 1rem;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(22, 22, 22, 0.9);
   z-index: 10;
-  /* display:none; */
+  display: none;
+}
+.win-loss{
+  display: block;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  width: 100%;
+  font-family: kanit;
+  font-size: 4rem;
+  color: #fff;
+  margin-top: 10rem;
+}
+.post-buttons{
+  text-align:  center;
+}
+.post-buttons button{
+  font-family: kanit;
+  font-size: 2rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 0 1rem 0;
+  width: 15rem;
+  margin: 2rem 1rem 1rem 1rem;
 }

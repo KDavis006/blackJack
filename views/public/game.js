@@ -1,3 +1,4 @@
+
 const dealerCards = document.querySelector('.dealerContainer');
 const playerCards = document.querySelector('.playerContainer');
 
@@ -104,7 +105,6 @@ const endGame = () => {
   }
 };
 
-const Player = require('../../models/user');
 
 const showDelayedAlert = (message, delayInSeconds) => {
   setTimeout(() => {
@@ -117,14 +117,11 @@ const showDelayedAlert = (message, delayInSeconds) => {
 const playerWin = async (playerId) => {
   try {
     // Find the player by their ID and update the wins field
-    await Player.findByIdAndUpdate(playerId, { $inc: { wins: 1 } });
-
-    await Player.findByIdAndUpdate(playerId, { 
-      loseStreakValue: 0,
-      $inc: { winStreakValue: 1 }
-    });
-
-    showDelayedAlert('Congratulations! You win!', 0.5);
+    $(`.win-loss`).val(`You Win`)
+    $(`.post-background`).css({"display": "flex"},2000);
+    $(`.post-wrapper`).css({"display": "flex"},2000);
+    $(`.post`).css({"display": "block"},2000);
+    $(`.back-home`).css({"display": "none"},2000);
   } catch (error) {
     console.error('Error updating player wins:', error);
   }
@@ -133,14 +130,13 @@ const playerWin = async (playerId) => {
 const playerLose = async (playerId) => {
   try {
     // Find the player by their ID and update the losses field
-    await Player.findByIdAndUpdate(playerId, { $inc: { losses: 1 } });
 
-    await Player.findByIdAndUpdate(playerId, { 
-      winStreakValue: 0,
-      $inc: { loseStreakValue: 1 }
-    });
-
-    showDelayedAlert('Sorry, you lose.', 0.5);
+    // showDelayedAlert('Sorry, you lose.', 0.5);
+    $(`.win-loss`).val(`You Loss`)
+    $(`.post-background`).css({"display": "flex"},2000);
+    $(`.post-wrapper`).css({"display": "flex"},2000);
+    $(`.post`).css({"display": "block"},2000);
+    $(`.back-home`).css({"display": "none"},2000);
   } catch (error) {
     console.error('Error updating player losses:', error);
   }
@@ -149,16 +145,12 @@ const playerLose = async (playerId) => {
 const tie = async (playerId) => {
   try {
     // Find the player by their ID and update the ties field
-    await Player.findByIdAndUpdate(playerId, { $inc: { ties: 1 } });
 
-    await Player.findByIdAndUpdate(playerId, { 
-      winStreakValue: 0,
-      loseStreakValue: 0,
-      $inc: { ties: 1}
-    });
-
-
-    showDelayedAlert("It's a Tie! The game is a draw.", 0.5);
+    $(`.win-loss`).val(`Tie`)
+    $(`.post-background`).css({"display": "flex"},2000);
+    $(`.post-wrapper`).css({"display": "flex"},2000);
+    $(`.post`).css({"display": "block"},2000);
+    $(`.back-home`).css({"display": "none"},2000);
   } catch (error) {
     console.error('Error updating player ties:', error);
   }
