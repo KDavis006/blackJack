@@ -3,23 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="Styles/login.css">
+    <title>Login</title>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Blackjack Login</h2>
-        <form action="/login" method="post">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+
+    <div class="container">
+        <div class="login-box">
+            <h2 class="login-title">blackJack Login</h2>
+            <input type="text" class="login-input" placeholder="Username">
+            <input type="password" class="login-input" placeholder="Password">
+            <div class="login-button-container">
+                <p>Dont have an account? <a href="./signIn.html">Sign up</a></p>
+                <button class="login-button">Login</button>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
+        </div>
     </div>
-    
 </body>
 </html>
