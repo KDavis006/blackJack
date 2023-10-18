@@ -102,7 +102,7 @@ height: 15rem;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 7rem;
+    top: 12rem;
     width: 100%;
     gap: 2.5rem;
   }
@@ -187,6 +187,19 @@ height: 15rem;
     border-radius: .5rem;
     margin: 1rem 0 0 1rem;
   }
+  #logout{
+    color: white;
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+    text-align: right;
+    cursor: pointer;
+    font-size: 2rem;
+    position: fixed;
+    padding: .5rem 1.5rem .3em 1.5rem;
+    border-radius: .5rem;
+    margin: 1rem 0 0 1rem;
+  }
   #leave2{
     z-index: 5;
     color: white;
@@ -198,4 +211,30 @@ height: 15rem;
     padding: .5rem 1.5rem .3em 1.5rem;
     border-radius: .5rem;
     margin: 1rem 0 0 1rem;
+  }
+  .logout{
+    font-family: kanitlight;
+    top: 0;
+    color: white;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(2, 99, 13, 0.1);
+    z-index: 2;
+    position: fixed;
+    display: none;
+  }
+  .logout{
+    font-family: kanitlight;
+  bottom: 0;
+  color: white;
+  background-color: rgb(20, 20, 20);
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  font-size: 2rem;
+  position: absolute;
+  padding: .5rem 1.5rem .3em 1.5rem;
+  border-radius: .5rem;
+  margin: 1rem 0 0 1rem;
+  z-index: 5;
   }
