@@ -7,7 +7,8 @@
    /* Remove default margin */
     padding: 0;
    /* Remove default padding */
-    background-image: url(../../../image/iStock-1218355494.jpg);
+    /* background-image: url(../../../image/iStock-1218355494.jpg); */
+    background-color: rgb(236, 236, 236);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,18 +34,54 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .img-logo{
+    width: 100%;
+    text-align: center;
+  }
+  .img-logo img{
+    margin-top: 5rem;
+width: 35rem;
+height: 15rem;
+
+  }
   .start-buttons button {
-    padding: 1.5rem 7rem 1.5rem 7rem;
+    padding: 1.5rem 0 1.5rem 0;
+    color: #fff;
+    font-size: 2rem;
+    font-family: kanit;
+    width: 20rem;
     border: none;
     border-radius: 0.5rem;
     margin: 1rem 0 1rem 0;
   }
   .play {
-    background-color: #e4d01e;
+    background-color: #e9b715;
+  }
+  .play:hover{
+    box-shadow: 0px 0px 10px black;
+    background-color: #daa618;
+    font-weight: bold;
+  }
+  .profile{
+    background-color: #161616;
+  }
+  .profile:hover{
+    box-shadow: 0px 0px 10px black;
+    background-color: #0c0c0c;
+    font-weight: bold;
+  }
+  .score{
+    background-color: #161616;
+  }
+  .score:hover{
+    box-shadow: 0px 0px 10px black;
+    background-color: #0c0c0c;
+    font-weight: bold;
   }
 
   .more1{
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -55,6 +92,7 @@
     transform: translate(-50%, -50%);
   }
   .buttons-container-top {
+    text-align: center;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -72,31 +110,48 @@
   }
   .square {
     border-radius: .5rem;
-    font-size: 3vw;
+    font-size: 2rem;
     font-family: kanit;
     color: #fff;
     height: 10rem;
     width: 20rem;
     border: none;
     transition: 0.2s;
-    box-shadow: 2px 2px 10px black;
+  }
+  .square span{
+    font-size: 3rem;
   }
   .pop-profile {
-    width: 80rem;
+    width: 50rem;
     height: 40rem;
     border-radius: 1rem;
-    background-color: rgb(18, 18, 18);
+    background-color: rgb(22, 22, 22);
     display:none;
   }
-  #leave{
-    color: white;
+  .name{
     text-align: center;
+    width: 100%;
+    font-family: kanit;
+    font-size: 3rem;
+    color: #fff;
+  }
+  .scoreboard-name{
+    text-align: center;
+    width: 100%;
+    font-family: kanit;
+    font-size: 3rem;
+    color: #fff;
+    position: absolute;
+    z-index: 0;
+  }
+  .positions{
+    margin-top: 5rem;
+    width: 100%;
+    text-align: center;
+    color: white;
     font-size: 2rem;
-    background-color: rgb(33, 33, 33);
-    position: fixed;
-    padding: .5rem 1.5rem .3em 1.5rem;
-    border-radius: .5rem;
-    margin: 1rem 0 0 1rem;
+    font-family: kanit;
+
   }
   .more2{
     display: flex;
@@ -117,21 +172,22 @@
   }
   #leave1{
     color: white;
+    font-weight: bold;
     text-align: center;
     cursor: pointer;
     font-size: 2rem;
-    background-color: rgb(33, 33, 33);
     position: fixed;
     padding: .5rem 1.5rem .3em 1.5rem;
     border-radius: .5rem;
     margin: 1rem 0 0 1rem;
   }
   #leave2{
+    z-index: 5;
     color: white;
+    font-weight: bold;
     text-align: center;
     cursor: pointer;
     font-size: 2rem;
-    background-color: rgb(33, 33, 33);
     position: fixed;
     padding: .5rem 1.5rem .3em 1.5rem;
     border-radius: .5rem;
