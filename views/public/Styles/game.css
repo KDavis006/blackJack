@@ -112,4 +112,37 @@ body {
   padding: .5rem 1.5rem .3em 1.5rem;
   border-radius: .5rem;
   margin: 1rem 0 0 1rem;
+
+  z-index: 0;
+}
+.post-background{
+  width: 100vw;
+  height: 100%;
+  background-color: rgb(236, 236, 236);
+  z-index: 2;
+  position: fixed;
+  display: none;
+}
+.post-wrapper{
+  z-index: 5;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-wrap: wrap;
+  gap: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.post {
+  position: absolute;
+  width: 60rem;
+  height: 40rem;
+  border-radius: 1rem;
+  background-color: rgb(22, 22, 22);
+  z-index: 10;
+  /* display:none; */
 }
