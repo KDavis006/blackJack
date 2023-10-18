@@ -45,6 +45,8 @@ app.use((req, res, next) => {
 // Routes/router
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/user'));
+app.use('/scoreboard', require('./routes/users-controller'));
+
 
 // Server listener
 

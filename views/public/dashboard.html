@@ -13,40 +13,31 @@
 <div class="img-logo"><img src="../../image/lalala.png"></div>
     <div class="start-buttons">
         <a href="game.html"><button class="play" id="play">Play</button></a>
-        <button class="profile" id="profile">Profile</button>
-        <button class="score" id="scoreboard">Scoreboard</button>
-      </div>
-      <div class="more1"><div class="pop-profile">
+        <button class="profile" id="profile" onclick="profile()">Profile</button>
+        <button class="score" id="scoreboard" onclick="topWins()">Scoreboard</button>
+    </div>
+    <div class="more1"><div class="pop-profile">
         <div id="leave1">X</div>
         <div class="name">Asher Page</div>
         <div class="buttons-container-top">
-        <div class="square">Amount of Wins<br><span>0</span></div>
-        <div class="square">Amount of Losses<br><span>0</span></div>
+        <div class="square wins">Amount of Wins<br><span>0</span></div>
+        <div class="square losses">Amount of Losses<br><span>0</span></div>
     </div>
     <div class="buttons-container-bottom">
-        <div class="square">Amount of Ties<br><span>0</span></div>
-        <div class="square">Max Winstreak<br><span>0</span></div>
+        <div class="square ties">Amount of Ties<br><span>0</span></div>
+        <div class="square winstreak">Max Winstreak<br><span>0</span></div>
     </div>
-      </div>
-    </div>
+  </div>
+</div>
 
-      <div class="more2"><div class="pop-scoreboard">
-        <div id="leave2">X</div>
-        <div class="scoreboard-name">Scoreboard</div>
-        <br>
-        <div class="positions">
-          1.<span id="pos1"></span><br>
-          2.<span id="pos2"></span><br>
-          3.<span id="pos3"></span><br>
-          4.<span id="pos4"></span><br>
-          5.<span id="pos5"></span><br>
-          6.<span id="pos6"></span><br>
-          7.<span id="pos7"></span><br>
-          8.<span id="pos8"></span><br>
-          9.<span id="pos9"></span><br>
-          10.<span id="pos10"></span>
-        </div>
-      </div></div>
+  <div class="more2"><div class="pop-scoreboard">
+    <div id="leave2">X</div>
+    <div class="scoreboard-name">Scoreboard</div>
+    <br>
+    <div class="top-winners">
+    </div>
+  </div>
+</div>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
   integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
   crossorigin="anonymous"></script>

@@ -22,26 +22,37 @@ const topWinners = document.querySelector('.top-winners'); // Use the correct se
 
 const topWins = async () => {
   try {
-  await axios.get('/api/people') // Use the correct route to retrieve top winners
-  .then((response) => {
-    console.log(response)
-    topWinners.innerHTML = `
-    <span><h1>#1 - ${response[0].firstName}:    ${response[0].wins}</h1></span>
-    <span><h1>#2 - ${response[1].firstName}:    ${response[1].wins}</h1></span>
-    <span><h1>#3 - ${response[2].firstName}:    ${response[2].wins}</h1></span>
-    <span><h1>#4 - ${response[3].firstName}:    ${response[3].wins}</h1></span>
-    <span><h1>#5 - ${response[4].firstName}:    ${response[4].wins}</h1></span>
-    <span><h1>#6 - ${response[5].firstName}:    ${response[5].wins}</h1></span>
-    <span><h1>#7 - ${response[6].firstName}:    ${response[6].wins}</h1></span>
-    <span><h1>#8 - ${response[7].firstName}:    ${response[7].wins}</h1></span>
-    <span><h1>#9 - ${response[8].firstName}:    ${response[8].wins}</h1></span>
-    <span><h1>#10 - ${response[9].firstName}:    ${response[9].wins}</h1></span>
-    `
-  });
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
+    await axios.get('/scoreboard')
+    .then((users) => {
+      console.log(users)
+      let usersData = users.find({}).sort({ wins: -1 });
+      console.log('why')
+
+      // Create a scoreboard array with the desired format
+      const scoreboard = usersData.map((user, index) => {
+        const position = index + 1;
+        return `#${position} ${user.first_name}: ${user.wins}`;
+      })
+      .catch((error) => { console.log(error) });
+
+      topWinners.innerHTML = scoreboard.join('')
+    });
+  } catch (err) {
+  } 
 };
 
-// Call the function to load the top winners
-topWins();
+const playerName = document.querySelector('.name')
+const playerWins = document.querySelector('.wins')
+const playerLosses = document.querySelector('.losses')
+const playerTies = document.querySelector('.ties')
+const playerWinStreak = document.querySelector('.winstreak')
+
+const profile = async (id) => {
+  try {
+    fetch(`/scoreboard/${id}`, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: playerName, wins: playerWins, losses: playerLosses, ties: playerTies, MaxWinStreak: playerWinStreak})
+    })
+  } catch (err) {}
+}

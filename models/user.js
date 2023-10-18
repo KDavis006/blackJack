@@ -36,7 +36,15 @@ const UserSchema = new mongoose.Schema({
  MaxLoseStreak: {
   type: Number,
     default: 0,
-   }
+   }, 
+  winStreakValue: {
+    type: Number,
+    default: 0,
+  },
+  loseStreakValue: {
+    type: Number,
+    default: 0,
+  }
 },{collection: "Users"})
 
 
