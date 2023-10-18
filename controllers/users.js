@@ -12,8 +12,9 @@ try {
 }
 
 const getOneUser = async (req, res) => {
-  const {id: id} = req.params
-  let answer = await users.find({id: id})
+  console.log('this is running')
+  const {email: email} = req.params
+  let answer = await users.find({email: email})
   console.log(answer);
   res.json(answer)
 }
@@ -21,8 +22,8 @@ const getOneUser = async (req, res) => {
 const updateUser = async(req, res) => {
   try {
   console.log(req.body)
-  const {id: id} = req.params
-  let answer = await users.findOneAndUpdate({id: id}, req.body, {
+  const {email: email} = req.params
+  let answer = await users.findOneAndUpdate({email: email}, req.body, {
     new: true, 
     runValidators: true
   })

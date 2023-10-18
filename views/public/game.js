@@ -102,30 +102,24 @@ const endGame = () => {
     dealerHit();
   }else if (playerValue > 21) {
     playerLose();
-  } else if (dealerValue > 21 || (dealerValue < 17 && dealerValue < playerValue)) {
+  } else if (dealerValue > 21 || dealerValue < playerValue) {
     playerWin();
   } else if (playerValue === dealerValue) {
-    tie();
-  } else {
-    playerLose();
+    playerTie();
   }
 };
 
-const email = document.querySelector('.target').value;
+const email = document.querySelector('.target').innerHTML;
 
-
-
-const showDelayedAlert = (message, delayInSeconds) => {
-  setTimeout(() => {
-    if (confirm(message)) {
-      window.location.reload(); // Reload the page only if the user clicks OK
-    }
-  }, delayInSeconds * 1000); // Convert seconds to milliseconds
-};
-
-const playerWin = async (playerId) => {
+const playerWin = async () => {
   try {
     // Find the player by their ID and update the wins field
+        fetch(`/scoreboard/${email}`, {
+          method: 'PUT',
+          headers: {'Content-Type': 'application/json'},
+          body: {Wins: value.data[0].Wins + 1}
+        })
+
     $(`.win-loss`).val(`You Win`)
     $(`.post-background`).css({"display": "flex"},2000);
     $(`.post-wrapper`).css({"display": "flex"},2000);
@@ -139,6 +133,8 @@ const playerWin = async (playerId) => {
 const playerLose = async (playerId) => {
   try {
     // Find the player by their ID and update the losses field
+    await axios.get(`/scoreboard/${email}`)
+      .then((value) => console.log(value))
 
     // showDelayedAlert('Sorry, you lose.', 0.5);
     $(`.win-loss`).val(`You Loss`)
@@ -154,11 +150,6 @@ const playerLose = async (playerId) => {
 const playerTie = async (playerId) => {
   try {
     // Find the player by their ID and update the ties field
-    await axios.get(`/users/${email}`)
-      .then((value) => console.log(value))
-
-
-    showDelayedAlert("It's a Tie! The game is a draw.", 0.5);
 
     $(`.win-loss`).val(`Tie`)
     $(`.post-background`).css({"display": "flex"},2000);
