@@ -16,9 +16,17 @@ router.get('/', (req,res) =>{
 
 // dashboard-Homepage Redirect
 router.get('/dashboard', ensureAuthenticated, (req, res) =>{
+ console.log(req.user);
  res.render('pages/dashboard', {
   user: req.user
  });
+})
+
+router.get('/game', ensureAuthenticated, (req, res) => {
+ console.log(req.user);
+ res.render('pages/game', {
+   user: req.user
+  });
 })
 
 module.exports = router

@@ -12,23 +12,23 @@
 </head>
 
 <body>
- <div class="img-logo"><img src="../../image/lalala.png"></div>
+ <div class="img-logo"><img src="../public/image/lalala.png"></div>
  <div class="start-buttons">
-  <a href="../public/game.html"><button class="play" id="play">Play</button></a>
-  <button class="profile" id="profile">Profile</button>
-  <button class="score" id="scoreboard">Scoreboard</button>
+  <a href="/game"><button class="play" id="play">Play</button></a>
+  <button class="profile" id="profile" onclick="profile()">Profile</button>
+  <button class="score" id="scoreboard" onclick="topWins()">Scoreboard</button>
  </div>
  <div class="more1">
   <div class="pop-profile">
    <div id="leave1">X</div>
-   <div class="name">Asher Page</div>
+   <div class="name"><%= user.first_name %></div>
    <div class="buttons-container-top">
-    <div class="square">Amount of Wins<br><span>0</span></div>
-    <div class="square">Amount of Losses<br><span>0</span></div>
+    <div class="square">Amount of Wins<br><span><%= user.wins %></span></div>
+    <div class="square">Amount of Losses<br><span><%= user.losses %></span></div>
    </div>
    <div class="buttons-container-bottom">
-    <div class="square">Amount of Ties<br><span>0</span></div>
-    <div class="square">Max Winstreak<br><span>0</span></div>
+    <div class="square">Amount of Ties<br><span><%= user.ties %></span></div>
+    <div class="square">Max Winstreak<br><span><%= user.maxWinStreak %></span></div>
    </div>
   </div>
  </div>
@@ -38,7 +38,7 @@
    <div id="leave2">X</div>
    <div class="scoreboard-name">Scoreboard</div>
    <br>
-   <div class="positions">
+   <div class="positions top-winners">
     1.<span id="pos1"></span><br>
     2.<span id="pos2"></span><br>
     3.<span id="pos3"></span><br>

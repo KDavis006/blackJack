@@ -22,6 +22,7 @@ try {
 app.use(morgan('tiny'))
 // EJS
 app.set('view engine', 'ejs');
+app.use(express.static('./views/public'));
 app.use(expressEJSLayout);
 // Body Parser
 app.use(express.urlencoded({extended: false}));
@@ -46,6 +47,8 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/user'));
 app.use('/scoreboard', require('./routes/users-controller'));
+app.use('/public', express.static('./views/public'));
+
 
 
 // Server listener

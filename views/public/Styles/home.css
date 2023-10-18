@@ -18,11 +18,11 @@
   }
   @font-face {
     font-family: kanit;
-    src: url(../../../fonts/Kanit-Medium.ttf);
+    src: url(../fonts/Kanit-Medium.ttf);
   }
   @font-face {
     font-family: kanitLight;
-    src: url(../../../fonts/Kanit-Light.ttf);
+    src: url(../fonts/Kanit-Light.ttf);
   }
 .start-buttons {
     display: flex;

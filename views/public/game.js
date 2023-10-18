@@ -44,9 +44,13 @@ const isFaceCardAndAce = (board) => {
 const playerHit = async () => {
   await drawInitialCards(playerBoard, playerCards, 1);
 
-  if (calculateHandValue(playerBoard) > 21 || playerBoard.length === 5) {
+  if (calculateHandValue(playerBoard) > 21) {
     playerLose();
     return
+  }
+
+  if(playerBoard.length === 5) {
+    playerWin();
   }
 };
 
@@ -56,9 +60,11 @@ const dealerHit = async () => {
    if (calculateHandValue(dealerBoard) < 17) {
     dealerHit();
     return
-   }else if (calculateHandValue(dealerBoard) > 21 || dealerBoard.length === 5) {
+   }else if (calculateHandValue(dealerBoard) > 21) {
     playerWin();
     return
+  } else if (dealerBoard.length === 5){
+    playerLose()
   } else {
     endGame();
     return
@@ -104,7 +110,9 @@ const endGame = () => {
   }
 };
 
-const Player = require('../../models/user');
+const email = document.querySelector('.target').value;
+
+
 
 const showDelayedAlert = (message, delayInSeconds) => {
   setTimeout(() => {
@@ -117,12 +125,12 @@ const showDelayedAlert = (message, delayInSeconds) => {
 const playerWin = async (playerId) => {
   try {
     // Find the player by their ID and update the wins field
-    await Player.findByIdAndUpdate(playerId, { $inc: { wins: 1 } });
+    // await Player.findByIdAndUpdate(playerId, { $inc: { wins: 1 } });
 
-    await Player.findByIdAndUpdate(playerId, { 
-      loseStreakValue: 0,
-      $inc: { winStreakValue: 1 }
-    });
+    // await Player.findByIdAndUpdate(playerId, { 
+    //   loseStreakValue: 0,
+    //   $inc: { winStreakValue: 1 }
+    // });
 
     showDelayedAlert('Congratulations! You win!', 0.5);
   } catch (error) {
@@ -133,12 +141,12 @@ const playerWin = async (playerId) => {
 const playerLose = async (playerId) => {
   try {
     // Find the player by their ID and update the losses field
-    await Player.findByIdAndUpdate(playerId, { $inc: { losses: 1 } });
+    // await Player.findByIdAndUpdate(playerId, { $inc: { losses: 1 } });
 
-    await Player.findByIdAndUpdate(playerId, { 
-      winStreakValue: 0,
-      $inc: { loseStreakValue: 1 }
-    });
+    // await Player.findByIdAndUpdate(playerId, { 
+    //   winStreakValue: 0,
+    //   $inc: { loseStreakValue: 1 }
+    // });
 
     showDelayedAlert('Sorry, you lose.', 0.5);
   } catch (error) {
@@ -146,16 +154,11 @@ const playerLose = async (playerId) => {
   }
 };
 
-const tie = async (playerId) => {
+const playerTie = async (playerId) => {
   try {
     // Find the player by their ID and update the ties field
-    await Player.findByIdAndUpdate(playerId, { $inc: { ties: 1 } });
-
-    await Player.findByIdAndUpdate(playerId, { 
-      winStreakValue: 0,
-      loseStreakValue: 0,
-      $inc: { ties: 1}
-    });
+    await axios.get(`/users/${email}`)
+      .then((value) => console.log(value))
 
 
     showDelayedAlert("It's a Tie! The game is a draw.", 0.5);

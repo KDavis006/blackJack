@@ -47,9 +47,10 @@ const playerLosses = document.querySelector('.losses')
 const playerTies = document.querySelector('.ties')
 const playerWinStreak = document.querySelector('.winstreak')
 
-const profile = async (id) => {
+const profile = async () => {
+  console.log(user.email)
   try {
-    fetch(`/scoreboard/${id}`, {
+    fetch(`/scoreboard/${user.email}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name: playerName, wins: playerWins, losses: playerLosses, ties: playerTies, MaxWinStreak: playerWinStreak})
