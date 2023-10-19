@@ -106,6 +106,8 @@ const endGame = () => {
     playerWin();
   } else if (playerValue === dealerValue) {
     playerTie();
+  } else {
+    playerLose();
   }
 };
 
@@ -114,12 +116,13 @@ const email = document.querySelector('.target').innerHTML;
 const playerWin = async () => {
   try {
     // Find the player by their ID and update the wins field
-        fetch(`/scoreboard/${email}`, {
-          method: 'PUT',
-          headers: {'Content-Type': 'application/json'},
-          body: {Wins: value.data[0].Wins + 1}
-        })
+        // fetch(`/scoreboard/${email}`, {
+        //   method: 'PUT',
+        //   headers: {'Content-Type': 'application/json'},
+        //   body: {Wins: value.data[0].Wins + 1}
+        // })
 
+        console.log('player win');
     $(`.win-loss`).val(`You Win`)
     $(`.post-background`).css({"display": "flex"},2000);
     $(`.post-wrapper`).css({"display": "flex"},2000);
@@ -133,10 +136,15 @@ const playerWin = async () => {
 const playerLose = async (playerId) => {
   try {
     // Find the player by their ID and update the losses field
-    await axios.get(`/scoreboard/${email}`)
-      .then((value) => console.log(value))
+    // fetch(`/scoreboard/${email}`, {
+    //       method: 'PUT',
+    //       headers: {'Content-Type': 'application/json'},
+    //       body: {Wins: value.data[0].Losses + 1}
+    //     })
 
     // showDelayedAlert('Sorry, you lose.', 0.5);
+
+    console.log('Player lose');
     $(`.win-loss`).val(`You Loss`)
     $(`.post-background`).css({"display": "flex"},2000);
     $(`.post-wrapper`).css({"display": "flex"},2000);
@@ -150,7 +158,13 @@ const playerLose = async (playerId) => {
 const playerTie = async (playerId) => {
   try {
     // Find the player by their ID and update the ties field
+    // fetch(`/scoreboard/${email}`, {
+    //       method: 'PUT',
+    //       headers: {'Content-Type': 'application/json'},
+    //       body: {Wins: value.data[0].Ties + 1}
+    //     })
 
+    console.log('tie')
     $(`.win-loss`).val(`Tie`)
     $(`.post-background`).css({"display": "flex"},2000);
     $(`.post-wrapper`).css({"display": "flex"},2000);
