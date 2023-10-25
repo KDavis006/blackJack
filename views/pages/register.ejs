@@ -63,12 +63,12 @@
 }
     </style>
   </head>
-<%- include ('../partials/messages') %>
 
  <div class="container">
   <form action="/users/register" method="POST">
   <div class="login-box">
-      <h2 class="login-title">BlackJack Sign up</h2>
+      <h2 class="login-title">Sign up</h2>
+    <%- include ('../partials/messages') %>
       <input class="login-input namers" type="text" name="first_name" id="first_name" placeholder="Enter First Name" value="<%= typeof first_name != 'undefined' ? first_name : '' %>">
       <input class="login-input namers" type="text" name="last_name" id="last_name" placeholder="Enter Last Name" value="<%= typeof last_name != 'undefined' ? last_name : '' %>">
       <input class="login-input" type="text" name="email" id="email" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>">
